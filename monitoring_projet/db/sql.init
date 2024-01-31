@@ -1,0 +1,46 @@
+CREATE TABLE User (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255),
+    isAdmin BOOLEAN
+);
+
+CREATE TABLE Pc (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    adressIp VARCHAR(255),
+    memoryUsage FLOAT,
+    processeurUsage FLOAT,
+    usageDisque FLOAT,
+    FOREIGN KEY (user_id) REFERENCES User(id)
+);
+
+CREATE TABLE Iot (
+    mac VARCHAR(255) PRIMARY KEY,
+    temp FLOAT,
+    datetime VARCHAR(255),
+    latitude FLOAT,
+    longitude FLOAT
+);
+
+CREATE TABLE Weather (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    city VARCHAR(255),
+    country VARCHAR(255),
+    date VARCHAR(255),
+    temperature FLOAT,
+    humidity FLOAT,
+    wind_speed FLOAT,
+    precipitation FLOAT
+);
+
+
+
+
+
+
+
+
+INSERT INTO User (username, email, password, isAdmin)
+VALUES ('admin1', 'admin1@example.com', '1234', 1);

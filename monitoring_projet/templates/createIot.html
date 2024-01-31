@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>site</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/deleteUser.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='ionicons/ionicons.min.css') }}"
+    />
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="wrapper">
+        <div class="logo"><a href="#">Logo</a></div>
+        <input type="radio" name="slider" id="menu-btn" />
+        <input type="radio" name="slider" id="close-btn" />
+        <ul class="nav-links">
+          <label for="close-btn" class="btn close-btn"
+            ><i class="fas fa-times"></i
+          ></label>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li>
+            <a href="#" class="desktop-item">Mega Menu</a>
+            <input type="checkbox" id="showMega" />
+            <label for="showMega" class="mobile-item">Mega Menu</label>
+            <div class="mega-box">
+              <div class="content">
+                <div class="row">
+                  <img
+                    src="https://fadzrinmadu.github.io/hosted-assets/responsive-mega-menu-and-dropdown-menu-using-only-html-and-css/img.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="row">
+                  <header>End Devices</header>
+                  <ul class="mega-links">
+                    <li><a href="/getUsers">View All End Devices</a></li>
+                    <li><a href="/createUser">Create New End Device</a></li>
+                    <li><a href="/deleteUser">delete End Device</a></li>=
+                    <li><a href="#">Modify End Device</a></li>
+                    =
+                  </ul>
+                </div>
+                <div class="row">
+                  <header>Iot Devices</header>
+                  <ul class="mega-links">
+                    <li><a href="/getIot">View All Iot Devices</a></li>
+                    <li><a href="/createIot">Create New Iot Device</a></li>
+                    <li><a href="#">Modify Iot Device</a></li>
+                    =
+                  </ul>
+                </div>
+                <div class="row">
+                  <header>Cities</header>
+                  <ul class="mega-links">
+                    <li><a href="/getVilles">View All Cities</a></li>
+                    <li><a href="/addCity">Create New Cities</a></li>
+                    <li><a href="#">Modify Cities</a></li>
+                    =
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="#">Feedback</a></li>
+        </ul>
+        <label for="menu-btn" class="btn menu-btn"
+          ><i class="fas fa-bars"></i
+        ></label>
+      </div>
+    </nav>
+
+    <!-- Main -->
+    <main id="main">
+        <h1>Create Iot</h1>
+        <form action="/createIotUI" method="post">
+            <div class="form-group">
+                <label for="username">Mac:</label>
+                <input type="text" id="username" name="mac" required>
+            </div>
+            <button type="submit">Create Iot</button>
+        </form>
+    </main>
+  </body>
+</html>

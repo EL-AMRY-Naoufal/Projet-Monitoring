@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>site</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='ionicons/ionicons.min.css') }}">
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="wrapper">
+        <div class="logo"><a href="#">Logo</a></div>
+        <input type="radio" name="slider" id="menu-btn">
+        <input type="radio" name="slider" id="close-btn">
+        <ul class="nav-links">
+          <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li>
+            <a href="#" class="desktop-item">Mega Menu</a>
+            <input type="checkbox" id="showMega">
+            <label for="showMega" class="mobile-item">Mega Menu</label>
+            <div class="mega-box">
+              <div class="content">
+                <div class="row">
+                  <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-mega-menu-and-dropdown-menu-using-only-html-and-css/img.jpg" alt="">
+                </div>
+                <div class="row">
+                  <header>End Devices</header>
+                  <ul class="mega-links">
+                    <li><a href="/getUsers">View All End Devices</a></li>
+                    <li><a href="/createUser">Create New End Device</a></li>
+                    <li><a href="/deleteUser">delete End Device</a></li>
+                    <li><a href="#">Modify End Device</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <header>Iot Devices</header>
+                  <ul class="mega-links">
+                    <li><a href="/getIot">View All Iot Devices</a></li>
+                    <li><a href="/createIot">Create New Iot Device</a></li>
+                    <li><a href="#">Modify Iot Device</a></li>
+                  </ul>
+                </div>
+                <div class="row">
+                  <header>Cities</header>
+                  <ul class="mega-links">
+                    <li><a href="/getVilles">View All Cities</a></li>
+                    <li><a href="/addCity">Create New Cities</a></li>
+                    <li><a href="#">Modify Cities</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="#">Feedback</a></li>
+        </ul>
+        <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+      </div>
+    </nav>
+
+    <!-- Main -->
+    <main id="main">
+      {% for weather in weather_data %}
+  <div class="container">
+    <div class="weather-side">
+      <div class="weather-gradient"></div>
+      <div class="date-container">
+        <h2 class="date-dayname">{{ weather.city }}</h2>
+        <span class="date-day">{{ weather.temperature }}°C</span>
+        <i class="location-icon" data-feather="map-pin"></i>
+        <span class="location">{{ weather.city }}</span>
+      </div>
+      <div class="weather-container">
+        <i class="weather-icon" data-feather="{{ weather.icon }}"></i>
+        <h1 class="weather-temp">{{ weather.temperature }}°C</h1>
+        <h3 class="weather-desc">{{ weather.description }}</h3>
+      </div>
+    </div>
+    <div class="info-side">
+      <div class="today-info-container">
+        <div class="today-info">
+          <div class="precipitation">
+            <span class="title">PRECIPITATION</span>
+            <span class="value">{{ weather.precipitation }} %</span>
+            <div class="clear"></div>
+          </div>
+          <div class="humidity">
+            <span class="title">HUMIDITY</span>
+            <span class="value">{{ weather.humidity }} %</span>
+            <div class="clear"></div>
+          </div>
+          <div class="wind">
+            <span class="title">WIND</span>
+            <span class="value">{{ weather.wind_speed }} km/h</span>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+    </main>
+  </body>
+</html>
